@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+      $(function () {
+
+        var $win = $(window);
+        var position01 = $('.graf-show01').offset().top - ($win.height() / 3 * 2); 
+        var flag01 = null;
+        
+        var doughnutData = [{
+          value: 18.2,
+          color: "#FF7FAB",
+          highlight: "#FFA9C7",
+          label: "女性"
+        }, {
+          value: 81.8,
+          color: "#31a3dd",
+          highlight: "#A3D5EF",
+          label: "男性"
+        }];
+        var options1 = {
+          // kich thuoc ben trong vong tron trang
+          percentageInnerCutout: 70,
+        };
+        //棒グラフ
+        
+        // var baroptions = {
+
+        //   animation: true,
+        //   // toc do chuyen dong
+        //   animationSteps: 60,
+        //   // loai hieu ung chuyen dong
+        //   animationEasing: 'easeOutQuad',
+
+        // };
+
+
+        // window.onload = function () {
+        //   var ctx = document.getElementById("doughnut-chart").getContext("2d");
+        //   window.myDoughnut1 = new Chart(ctx).Doughnut(doughnutData, options1, {
+        //     responsive: true
+        //   });
+        // }
+
+
+
+        $win.scroll(function () {
+          if ($(this).scrollTop() > position01 && flag01 === null) {
+            flag01 = 1;
+            var myDoughnut1 = new Chart(document.getElementById('doughnut-chart').getContext('2d')).Doughnut(doughnutData, options1);
+            // dem so
+            var countElm = $('.graf-show01 .count'),
+              countSpeed = 5;
+
+            countElm.each(function () {
+              var self = $(this),
+                countMax = self.attr('data-num'),
+                thisCount = self.text(),
+                countTimer;
+
+              function timer() {
+                countTimer = setInterval(function () {
+                  var countNext = thisCount++;
+                  self.text(countNext);
+
+                  if (countNext == countMax) {
+                    clearInterval(countTimer);
+                  }
+                }, countSpeed);
+              }
+              timer();
+            });
+
+          }
+
+        });
+
+      
+      
+      });
+    </script>
+</head>
+<body>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <p>texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext</p>
+    <div class="graf-warp01 graf-show01">
+        <div class="chart1">
+          <dl class="txt_color01">
+            <dt>社員数</dt>
+            <dd><span class="count txt_big oswald400" data-num="33">0</span>人</dd>
+          </dl>
+          <dl class="txt_color02">
+            <dt>社員の平均年齢</dt>
+            <dd><span class="txt_big oswald400"><span class="count" data-num="50">0</span>.<span class="count" data-num="8">0</span></span>歳</dd>
+          </dl>
+        </div>
+        <div class="chart2">
+          <dl class="chart1-graf chartwhite">
+            <dt class="chart_title">男女比</dt>
+            <dd>
+              <canvas id="doughnut-chart" class="doughnut-chart"></canvas>
+            </dd>
+          </dl>
+          <ul class="chart1_txt">
+            <li class="txt_color03">●男性<span class="txt_big oswald400"><span class="count" data-num="81">0</span>.<span class="count" data-num="8">0</span></span>%</li>
+            <li class="txt_color04">●女性<span class="txt_big oswald400"><span class="count" data-num="18">0</span>.<span class="count" data-num="2">0</span></span>%</li>
+          </ul>
+        </div>
+      </div>
+</body>
+</html>

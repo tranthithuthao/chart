@@ -1,0 +1,83 @@
+.detil_chart{
+    position: relative;
+    z-index: 0;
+}
+canvas{
+    width: 100% !important;
+    height: 100% !important;
+}
+.content_chart{
+    padding-top: 19px;
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.age_data{
+    position: absolute;
+    
+    color: #2c2d30;
+    line-height: 1.2;
+    text-align: left;
+}
+.age_data.item1{
+    top: 0;
+    right: 20%;
+}
+.age_data.item4{
+    top: 0;
+    left: 20%;
+}
+
+.age_data .l1, .age_data .l2{
+    position: absolute;
+    top: 30px;
+    width: 67px;
+    height: 67px;
+    
+}
+.age_data .l1{
+    left: -30px;
+}
+.age_data .l2{
+    right: -30px;
+}
+.age_data .line path {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1;
+}
+.age_data .num{
+    display: inline-block;
+}
+
+.age_data .data_tag{
+    font-size: 14px;
+}
+.age_data .data_num{
+    font-size: 25px;
+}
+.age_data .unit{
+    font-size: 80%;
+}
+.age_data.item2, .age_data.item3{
+    color: #fff;
+}
+.age_data.item2{
+    top: 50%;
+    right: 20%;
+}
+.age_data.item3{
+    top: 30%;
+    left: 20%;
+}
+.age_data.item2 .data_tag, .age_data.item3 .data_tag{
+    font-size: 20px;
+    display: block;
+}
+.age_data.item2 .data_num, .age_data.item3 .data_num{
+    font-size: 50px;
+}
+
+
+

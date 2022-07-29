@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="chart.js"></script>
+    <script src="wow.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animate.css">
+</head>
+<body>
+    
+    <div class="content_chart">
+        <div class="age_data item1">
+            <div class="wow fadeInRight">
+                <span class="data_tag">20~25歳</span>
+                <span class="data_num">8<span class="unit">%</span></span>
+            </div>
+            <div class="wow fadeIn" data-wow-delay="0.5s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 71 71" class="line l1"><path d="M71 1h-70v70"/></svg></div>
+        </div>
+        <div class="age_data item4">
+            <div class="wow fadeInLeft">
+                <span class="data_tag">46~65歳</span>
+                <span class="data_num">3<span class="unit">%</span></span>
+            </div>
+            <div class="wow fadeIn" data-wow-delay="0.5s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77 77" class="line l2"><path d="M0 1h76v76"/></svg></div>
+        </div>
+        <canvas id="myChart"></canvas>
+        <div class="age_data item2">
+            <span class="data_tag">26~35歳</span>
+            <span class="data_num"><span class="num wow fadeInDown" data-wow-delay="0.5s" data-wow-duration="0.5s">6</span><span class="num wow fadeInDown" data-wow-delay="0.2s"  data-wow-duration="0.5s">3</span><span class="unit">%</span></span>
+        </div>
+        <div class="age_data item3">
+            <span class="data_tag">36~45歳</span>
+            <span class="data_num"><span class="num wow fadeInDown" data-wow-delay="0.5s" data-wow-duration="0.5s">2</span><span class="num wow fadeInDown" data-wow-delay="0.2s"  data-wow-duration="0.5s">6</span><span class="unit">%</span></span>
+        </div>
+    </div>
+      <script>
+        
+
+        const canvas = document.getElementById("myChart");
+
+        const toRadians = (val) => val * Math.PI / 180;
+
+        const chart = new Chart(canvas, {
+        type: 'polarArea',
+        data: {
+            datasets: [{
+                data: [4, 6, 5, 3.7],
+                backgroundColor: [
+                    "#888888",
+                    "#e52d27",
+                    "#b7b6b6",
+                    "#666666"
+                ],
+                borderWidth: 0,
+            }],
+            labels: ['A', 'B', 'C', 'D'],
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scale: {
+                display: false
+            },
+            elements: {
+                arc: {
+                    // In Radians v3.0.0-beta.3 and prior
+                    angle: [
+                    toRadians(30),
+                    toRadians(230),
+                    toRadians(90),
+                    toRadians(10)
+                    ]
+                }
+            },
+            animation: {
+                    animateRotate: true,
+                    animateScale: true
+                }
+        },
+        
+        });
+        
+        wow = new WOW(
+        {
+            animateClass: 'animated',
+            offset:       100,
+        }
+        );
+        wow.init();
+
+      </script>
+
+      
+</body>
+</html>

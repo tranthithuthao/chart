@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  
+<style>
+   .lineAB{ 
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 600;
+    animation: dash 3s linear;
+    transition-property: stroke-dasharray;
+  }
+  @keyframes dash{
+    from{
+      stroke-dashoffset: 2000;
+    }
+    to{
+      stroke-dashoffset: 600;
+    }
+  } 
+
+   div{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    margin: 0 auto;
+   }
+   
+</style>
+<body>
+
+ <div>
+  <svg height="100%" width="100%" viewBox="0 0 100 100">
+    <path class="lineAB" d="M 0 0 L 100 0 L 100 100" stroke="black"
+    stroke-width="1" fill="none"  vector-effect="non-scaling-stroke"/>
+  </svg>
+ </div>
+ <div>
+  <svg height="100%" width="100%" viewBox="0 0 100 100" >
+    <path class="lineAB" d="M 100 0 L 0 0 L 0 100" stroke="black"
+    stroke-width="1" fill="none" vector-effect="non-scaling-stroke"/>
+  </svg>
+</div>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="content_chart">
+        <div class="age_data item1">
+            <span class="data_tag">20~25歳</span>
+            <span class="data_num">8<span class="unit">%</span></span>
+        </div>
+        <div class="age_data item4">
+            <span class="data_tag">46~65歳</span>
+            <span class="data_num">3<span class="unit">%</span></span>
+        </div>
+        <canvas id="myChart"></canvas>
+        <div class="age_data item2">
+            <span class="data_tag">26~35歳</span>
+            <span class="data_num">63<span class="unit">%</span></span>
+        </div>
+        <div class="age_data item3">
+            <span class="data_tag">36~45歳</span>
+            <span class="data_num">26<span class="unit">%</span></span>
+        </div>
+    </div>
+      <script>
+        const canvas = document.getElementById("myChart");
+
+        const toRadians = (val) => val * Math.PI / 180;
+
+        const chart = new Chart(canvas, {
+        type: 'polarArea',
+        data: {
+            datasets: [{
+                data: [4, 6, 5, 3.7],
+                backgroundColor: [
+                    "#888888",
+                    "#e52d27",
+                    "#b7b6b6",
+                    "#666666"
+                ],
+                borderWidth: 0,
+            }],
+            labels: ['A', 'B', 'C', 'D'],
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scale: {
+                display: false
+            },
+            elements: {
+                arc: {
+                    // In Radians v3.0.0-beta.3 and prior
+                    angle: [
+                    toRadians(30),
+                    toRadians(230),
+                    toRadians(90),
+                    toRadians(10)
+                    ]
+                }
+            },
+            animation: {
+                    animateRotate: true,
+                    animateScale: true
+                }
+        },
+        
+        })
+
+      </script>
+
+      <!-- <script>
+         var data = [{
+            data: [20, 55, 20, 33],
+            labels: ["India", "China", "US", "Canada"],
+            backgroundColor: [
+                "#4b77a9",
+                "#5f255f",
+                "#d21243",
+                "#B27200"
+            ],
+            borderColor: "#fff",
+            color: '#fff'
+        }];
+        
+           var options = {
+           tooltips: {
+                enabled: false
+            },
+             plugins: {
+                datalabels: {
+                    formatter: (value, ctx) => {
+
+                        let datasets = ctx.chart.data.datasets;
+
+                        if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
+                            let sum = 0;
+                            datasets.map(dataset => {
+                                sum += dataset.data[ctx.dataIndex];
+                            });
+                            let percentage = Math.round((value / sum) * 100) + '%';
+                            return percentage;
+                        } else {
+                            return percentage;
+                        }
+                    },
+                    color: '#fff',
+                     }
+        }
+    };
+    
+    
+        var ctx = document.getElementById("myChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: data
+        },
+              options: options
+    });
+        
+        
+      </script> -->
+      <!-- <script>
+        const data = {
+            labels: [
+                'Red',
+                'Green',
+                'Yellow',
+                'Grey',
+                'Blue',
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                'rgb(54, 162, 235)'
+                ],
+                borderWidth: 0,
+            }]
+            
+        };
+        const config = {
+            type: 'polarArea',
+            data: data,
+            options: {
+                customAngles: [
+                    10, 40, 80, 80, 150
+                ]
+                // scales: {
+                //     y: {
+                //         suggestedMin: 50,
+                //         suggestedMax: 100
+                //     }
+                // }
+                // plugins: {
+                //     tooltip: {
+                //         enabled: false
+                //     },
+                //     // datalabels: {
+                //     //     formatter: (value, context) =>{
+                //     //         const datapoints = context.chart.data.datasets(0).data;
+                //     //         function totalSum(total, datapoint){
+                //     //             return total + datapoint;
+                //     //         }
+                //     //         const totalvalue = datapoint.reduce(totalSum, 0);
+                //     //         const percentageValue = (value / totalvalue * 100).toFixed(1);
+                //     //         return `sales: $${value}, share: ${percentageValue}%`;
+                //     //     }
+                //     // }  
+
+                //     datalabels: {
+                //         formatter: (value, ctx) => {
+
+                //             let datasets = ctx.chart.data.datasets;
+
+                //             if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
+                //                 let sum = 0;
+                //                 datasets.map(dataset => {
+                //                     sum += dataset.data[ctx.dataIndex];
+                //                 });
+                //                 let percentage = Math.round((value / sum) * 100) + '%';
+                //                 return percentage;
+                //             } else {
+                //                 return percentage;
+                //             }
+                //         },
+                //         color: '#fff',
+                //      }
+                // }
+            }
+           
+            
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+        
+      </script> -->
+</body>
+</html>
